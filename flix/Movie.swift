@@ -18,7 +18,7 @@ class Movie: NSObject {
     var overview : String
     var popularity : NSNumber
     var releaseDate : Date
-    var trailerUrl : String?
+    var trailerKey : String?
     
     
     init(_ dictionary: NSDictionary) {
@@ -37,7 +37,7 @@ class Movie: NSObject {
         let videos = ((dictionary.value(forKeyPath: "videos.results") as? [NSDictionary]) ?? [])
         for vid in videos {
             if(vid.value(forKeyPath: "site") as? String == "YouTube"){
-                trailerUrl = "https://www.youtube.com/watch?v=\(vid.value(forKeyPath: "key"))"
+                trailerKey = vid.value(forKeyPath: "key") as? String
                 break
             }
         }

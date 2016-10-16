@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import VHUD
 
 class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,6 +21,9 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        var content = VHUDContent(.loop(3.0))
+        content.loadingText = "loading....."
+        VHUD.show(content)
         
         // Set up table
         tableView.dataSource = self
@@ -27,6 +31,8 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(loadData(_:)), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
+        
+        
         
         
         loadData(nil)
@@ -79,6 +85,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             case .failure(let error):
                 print(error)
             }
+            VHUD.dismiss(0.1)
         }
         
     }

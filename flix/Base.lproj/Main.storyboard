@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="gdA-kR-XWE">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +22,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HUs-Xi-OXO" id="QpZ-PG-ig0">
-                                            <frame key="frameInset" width="342" height="124"/>
+                                            <frame key="frameInset" width="342" height="124.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UYC-6D-q1T" userLabel="Description">
@@ -34,7 +33,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="agb-4T-fFy" userLabel="Poster Image">
-                                                    <frame key="frameInset" minX="8" minY="8" width="72" height="93.10%"/>
+                                                    <frame key="frameInset" minX="8" minY="8" width="72" height="92.70%"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vWQ-c7-HfO" userLabel="Title">
@@ -84,7 +83,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" id="6ZL-NP-JP2">
-                                        <rect key="frame" x="50" y="195" width="284" height="277"/>
+                                        <rect key="frame" x="50" y="195" width="284" height="406"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hateful Eight" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2H2-0k-nja" userLabel="Title">
@@ -109,7 +108,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NVb-iY-0d1" userLabel="Overview">
-                                                <frame key="frameInset" minX="30" minY="129" width="237" height="120"/>
+                                                <frame key="frameInset" minX="30" minY="239" width="237" height="120"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer semper elit et gravida porttitor. Sed congue rutrum massa, nec iaculis arcu suscipit vitae. Vestibulum diam massa, tincidunt ut mi et, porttitor ultrices erat. Phasellus rhoncus dapibus orci, sed consectetur enim hendrerit eu. Cras in sapien enim.</string>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -124,18 +123,44 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="clock.png" id="PBb-wb-qmw" userLabel="Clock">
-                                                <frame key="frameInset" minX="22" minY="74" width="64" height="64"/>
+                                                <frame key="frameInset" minX="21" minY="37" width="64" height="64"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="crown.png" id="Th5-Sw-70g" userLabel="Crown">
-                                                <frame key="frameInset" minX="98" minY="100" width="64" height="64"/>
+                                                <frame key="frameInset" minX="184" minY="47" width="64" height="64"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tEv-K1-7z7">
+                                                <frame key="frameInset" minX="21" minY="176" width="246" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="View Trailer"/>
+                                                <connections>
+                                                    <segue destination="g2b-NN-cYD" kind="modal" id="iSf-NK-Bp9"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69217649647887325" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
                             </scrollView>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" id="73Z-Oz-m8x" userLabel="Error Toast">
+                                <frame key="frameInset" width="375" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Network Error Ocured" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y6b-s2-OST">
+                                        <frame key="frameInset" minY="20" width="374" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="error" id="WCA-iF-V5g" userLabel="error image">
+                                <frame key="frameInset" minX="87" width="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -144,6 +169,8 @@
                         <outlet property="clockImageView" destination="PBb-wb-qmw" id="uag-Jh-see"/>
                         <outlet property="crownImageView" destination="Th5-Sw-70g" id="TPq-xx-w3H"/>
                         <outlet property="detailsView" destination="6ZL-NP-JP2" id="f75-k5-JMY"/>
+                        <outlet property="errorImageView" destination="WCA-iF-V5g" id="n0c-VK-AIM"/>
+                        <outlet property="errorToastView" destination="73Z-Oz-m8x" id="1LX-vT-lG9"/>
                         <outlet property="overviewLabel" destination="NVb-iY-0d1" id="7MK-bc-FI1"/>
                         <outlet property="popularityLabel" destination="iVc-xQ-EUh" id="Qbf-gW-NJk"/>
                         <outlet property="posterImageView" destination="5Uv-uv-FcP" id="xRe-Yv-548"/>
@@ -151,11 +178,45 @@
                         <outlet property="runtimeLabel" destination="7UW-IZ-p7L" id="i4Z-aO-3fB"/>
                         <outlet property="scrollView" destination="sE3-cK-Z70" id="sgj-my-uWX"/>
                         <outlet property="titleLabel" destination="2H2-0k-nja" id="TAg-sg-L3K"/>
+                        <outlet property="viewTrailerButton" destination="tEv-K1-7z7" id="2Gg-n2-Air"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVN-SK-2rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1129.5" y="146.5"/>
+        </scene>
+        <!--Trailer Player View Controller-->
+        <scene sceneID="4mE-ef-NrH">
+            <objects>
+                <viewController id="g2b-NN-cYD" customClass="TrailerPlayerViewController" customModule="flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VZf-JM-QwF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" id="4GL-86-zF8" userLabel="YouTube Player" customClass="YTPlayerView">
+                                <frame key="frameInset" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gjy-Fp-N7N">
+                                <frame key="frameInset" minX="264" minY="7" width="111" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="g2b-NN-cYD" eventType="primaryActionTriggered" id="XnA-G1-gxC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="gjy-Fp-N7N" id="sbH-n4-qYR"/>
+                        <outlet property="youTubePlayerView" destination="4GL-86-zF8" id="aKN-II-k4M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EgN-vb-iKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1660.5" y="152.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qx6-j5-X3U">
@@ -179,6 +240,7 @@
     <resources>
         <image name="clock.png" width="48" height="48"/>
         <image name="crown.png" width="48" height="48"/>
+        <image name="error" width="540" height="386"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -9,6 +9,10 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import UIKit
+import VHUD
+
+
 
 class MovieDetailViewController: UIViewController {
     
@@ -16,6 +20,9 @@ class MovieDetailViewController: UIViewController {
     var movie : Movie?
 
     
+    @IBOutlet weak var viewTrailerButton: UIButton!
+    @IBOutlet weak var errorToastView: UIView!
+    @IBOutlet weak var errorImageView: UIImageView!
     @IBOutlet weak var crownImageView: UIImageView!
     @IBOutlet weak var clockImageView: UIImageView!
     @IBOutlet weak var detailsView: UIView!
@@ -33,6 +40,11 @@ class MovieDetailViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
+        detailsView.isHidden = true;
+        
+        var content = VHUDContent(.loop(3.0))
+        content.loadingText = "loading....."
+        VHUD.show(content)
         
         
         
@@ -46,15 +58,17 @@ class MovieDetailViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let detailViewController = segue.destination as! TrailerPlayerViewController
+        detailViewController.trailerKey = movie!.trailerKey!
     }
-    */
+ 
     
     
     func loadData(){
@@ -66,13 +80,16 @@ class MovieDetailViewController: UIViewController {
             switch response.result {
             case .success:
                 self.movie = Movie(response.result.value as! NSDictionary)
-                self.loadUI()
+
             case .failure(let error):
                 print(error)
             }
+            self.loadUI()
         }
         
     }
+    
+    
     
     func loadUI() {
         if let movie = self.movie{
@@ -131,6 +148,16 @@ class MovieDetailViewController: UIViewController {
             
             currentY += max(popularityLabel.frame.height, runtimeLabel.frame.height) + 2
             
+            
+            
+            // view trailer
+            if (movie.trailerKey != nil){
+                viewTrailerButton.frame =  CGRect(x: contentSideMargin, y: currentY, width: contentWidth, height: viewTrailerButton.sizeThatFits(fullWidthMaxSize).height)
+                currentY += releaseLabel.frame.height + 6
+            }
+            
+            
+            
             // overview
             let test = overviewLabel.sizeThatFits(fullWidthMaxSize)
             overviewLabel.frame = CGRect(x: contentSideMargin, y: currentY, width: contentWidth, height: test.height)
@@ -144,17 +171,23 @@ class MovieDetailViewController: UIViewController {
             
             detailsView.frame = CGRect(x: detailsMargin, y: self.view.frame.height - CGFloat(100), width: detailsWidth, height: currentY)
             
+            detailsView.isHidden = false;
+            
             
             scrollView.contentSize.height = scrollView.bounds.height + (detailsView.frame.height - 80)
             scrollView.contentSize.width = scrollView.bounds.width
             
           
             
-            
-            
         }else{
             
+            detailsView.isHidden = true;
+            errorImageView.frame = CGRect(x: self.view.frame.width / 4, y: CGFloat(0), width: self.view.frame.width/2, height: self.view.frame.height)
+            errorImageView.isHidden = false;
+            errorToastView.isHidden = false;
+            
         }
+        VHUD.dismiss(0.1)
     }
 
 }
