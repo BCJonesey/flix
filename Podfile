@@ -1,3 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
 # Uncomment this line to define a global platform for your project
 # platform :ios, '9.0'
 
@@ -6,15 +7,9 @@ target 'flix' do
   use_frameworks!
 
   # Pods for flix
-
-  target 'flixTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'flixUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'master'
+  pod 'AlamofireImage', :git => 'https://github.com/Alamofire/AlamofireImage', :branch => 'master'
+  
+  
 
 end
