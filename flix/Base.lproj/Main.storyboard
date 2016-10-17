@@ -103,8 +103,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="5Uv-uv-FcP" userLabel="Poster Image">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="5Uv-uv-FcP" userLabel="Low Res Poster Image">
                                 <frame key="frameInset" width="387" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="zVR-VL-wnU" userLabel="Poster Image">
+                                <frame key="frameInset" minX="-6" width="387" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="sE3-cK-Z70">
@@ -200,6 +204,7 @@
                         <outlet property="detailsView" destination="6ZL-NP-JP2" id="f75-k5-JMY"/>
                         <outlet property="errorImageView" destination="WCA-iF-V5g" id="n0c-VK-AIM"/>
                         <outlet property="errorToastView" destination="73Z-Oz-m8x" id="1LX-vT-lG9"/>
+                        <outlet property="lowResImageView" destination="5Uv-uv-FcP" id="6PF-fp-HfR"/>
                         <outlet property="overviewLabel" destination="NVb-iY-0d1" id="7MK-bc-FI1"/>
                         <outlet property="popularityLabel" destination="iVc-xQ-EUh" id="Qbf-gW-NJk"/>
                         <outlet property="posterImageView" destination="5Uv-uv-FcP" id="xRe-Yv-548"/>

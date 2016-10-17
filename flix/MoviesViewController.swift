@@ -49,7 +49,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let viewTypeSegmentedControl = UISegmentedControl(frame: CGRect(x: 0, y: 10, width: 75, height: 30))
         viewTypeSegmentedControl.insertSegment(with: #imageLiteral(resourceName: "list"), at: 0, animated: false)
         viewTypeSegmentedControl.insertSegment(with: #imageLiteral(resourceName: "grid"), at: 1, animated: false)
-        viewTypeSegmentedControl.tintColor = UIColor.lightGray
+        //viewTypeSegmentedControl.tintColor = UIColor.lightGray
         viewTypeSegmentedControl.selectedSegmentIndex = 0
         viewTypeSegmentedControl.addTarget(self, action: #selector(viewTypeChange(sender:)), for: .valueChanged)
         
@@ -92,7 +92,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.titleLabel.text = (movie.value(forKey: "original_title") ?? "") as? String
         let imageFile = (movie.value(forKeyPath: "poster_path") as? String)
         if(imageFile != nil){
-            cell.posterImage.af_setImage(withURL: URL(string: "https://image.tmdb.org/t/p/w185" + imageFile!)!)
+            cell.posterImage.af_setImage(withURL: URL(string: "https://image.tmdb.org/t/p/w92" + imageFile!)!, imageTransition: UIImageView.ImageTransition.crossDissolve(0.2))
         }else{
             cell.posterImage.image = #imageLiteral(resourceName: "popcorn")
         }
@@ -197,7 +197,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let image = UIImageView(frame: CGRect(origin: CGPoint(), size: cell.frame.size))
             image.contentMode = UIViewContentMode.scaleAspectFill
             
-            image.af_setImage(withURL: URL(string: "https://image.tmdb.org/t/p/w185" + imageFile!)!)
+            image.af_setImage(withURL: URL(string: "https://image.tmdb.org/t/p/w92" + imageFile!)!, imageTransition: UIImageView.ImageTransition.crossDissolve(0.2))
             cell.contentView.addSubview(image)
         }else{
             let label = UILabel(frame: CGRect(origin: CGPoint(), size: cell.frame.size))

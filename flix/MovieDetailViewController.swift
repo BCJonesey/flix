@@ -20,6 +20,7 @@ class MovieDetailViewController: UIViewController {
     var movie : Movie?
 
     
+    @IBOutlet weak var lowResImageView: UIImageView!
     @IBOutlet weak var viewTrailerButton: UIButton!
     @IBOutlet weak var errorToastView: UIView!
     @IBOutlet weak var errorImageView: UIImageView!
@@ -97,7 +98,13 @@ class MovieDetailViewController: UIViewController {
             
             // load values
             posterImageView.frame = self.view.frame
-            posterImageView.af_setImage(withURL: movie.posterImageUrl(size: "w500"), placeholderImage: #imageLiteral(resourceName: "popcorn"))
+            lowResImageView.frame = self.view.frame
+            
+            
+            
+            lowResImageView.af_setImage(withURL: movie.posterImageUrl(size: "w92"),placeholderImage: #imageLiteral(resourceName: "popcorn"))
+            
+            posterImageView.af_setImage(withURL: movie.posterImageUrl(size: "w500"), imageTransition: UIImageView.ImageTransition.crossDissolve(0.5))
             titleLabel.text = movie.title
             overviewLabel.text = movie.overview
             popularityLabel.text = "\(movie.popularity.intValue)%"
@@ -153,8 +160,9 @@ class MovieDetailViewController: UIViewController {
             
             // view trailer
             if (movie.trailerKey != nil){
+                currentY += 4
                 viewTrailerButton.frame =  CGRect(x: contentSideMargin, y: currentY, width: contentWidth, height: viewTrailerButton.sizeThatFits(fullWidthMaxSize).height)
-                currentY += releaseLabel.frame.height + 6
+                currentY += releaseLabel.frame.height + 10
                 viewTrailerButton.isHidden = false
             }else{
                 viewTrailerButton.isHidden = true
