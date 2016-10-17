@@ -10,31 +10,22 @@ import UIKit
 import Alamofire
 import VHUD
 
-class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UICollectionViewDataSource {
+class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UICollectionViewDataSource,UICollectionViewDelegate {
     
     
     var movies:[NSDictionary] = []
     var listType : String!
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableView.frame = self.view.frame
+        
         var content = VHUDContent(.loop(3.0))
         content.loadingText = "loading....."
         VHUD.show(content)
-        
-        // Set up table
-        tableView.dataSource = self
-        tableView.delegate = self
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(loadData(_:searchString:)), for: UIControlEvents.valueChanged)
-        tableView.insertSubview(refreshControl, at: 0)
-        
-        
-        
         
         // set up search bar
         
@@ -64,6 +55,26 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: viewTypeSegmentedControl)
+        
+        // Set up table
+        tableView.frame = self.view.frame
+        tableView.dataSource = self
+        tableView.delegate = self
+        var refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(loadData(_:searchString:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
+        // set up grid
+        collectionView.frame = self.view.frame
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(loadData(_:searchString:)), for: UIControlEvents.valueChanged)
+        collectionView.insertSubview(refreshControl, at: 0)
+        
+        
+        
+        
         
         
         
@@ -121,6 +132,7 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let data = response.result.value as! NSDictionary
                 self.movies = data.value(forKeyPath: "results") as! [NSDictionary]
                 self.tableView.reloadData()
+                self.collectionView.reloadData()
                 
                 if let refreshControlNotNil = refreshControl{
                     refreshControlNotNil.endRefreshing()
@@ -152,11 +164,52 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func viewTypeChange(sender: UISegmentedControl){
-        print("pressed \(sender.selectedSegmentIndex)")
+        if(sender.selectedSegmentIndex == 0){
+            tableView.isHidden = false
+            collectionView.isHidden = true
+        }else{
+            tableView.isHidden = true
+            collectionView.isHidden = false
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell",
+                                                      for: indexPath)
+        let movie = movies[indexPath.row]
+        cell.backgroundColor = UIColor.black
+        for view in cell.contentView.subviews {
+            view.removeFromSuperview()
+        }
+        let imageFile = (movie.value(forKeyPath: "poster_path") as? String)
+        if(imageFile != nil){
+            let image = UIImageView(frame: CGRect(origin: CGPoint(), size: cell.frame.size))
+            image.contentMode = UIViewContentMode.scaleAspectFill
+            
+            image.af_setImage(withURL: URL(string: "https://image.tmdb.org/t/p/w185" + imageFile!)!)
+            cell.contentView.addSubview(image)
+        }else{
+            let label = UILabel(frame: CGRect(origin: CGPoint(), size: cell.frame.size))
+            label.textColor = UIColor.white
+            label.text = (movie.value(forKey: "original_title") ?? "") as? String
+            label.lineBreakMode = .byWordWrapping
+            label.numberOfLines = 0
+            label.contentMode = .center
+            label.textAlignment = .center
+            cell.contentView.addSubview(label)
+        }
+        
+        
+        // Configure the cell
+        return cell
     }
     
     
-   
+    
 
 }
 
