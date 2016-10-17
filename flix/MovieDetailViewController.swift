@@ -36,6 +36,7 @@ class MovieDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -96,7 +97,7 @@ class MovieDetailViewController: UIViewController {
             
             // load values
             posterImageView.frame = self.view.frame
-            posterImageView.af_setImage(withURL: movie.posterImageUrl(size: "w500"))
+            posterImageView.af_setImage(withURL: movie.posterImageUrl(size: "w500"), placeholderImage: #imageLiteral(resourceName: "popcorn"))
             titleLabel.text = movie.title
             overviewLabel.text = movie.overview
             popularityLabel.text = "\(movie.popularity.intValue)%"
@@ -154,6 +155,9 @@ class MovieDetailViewController: UIViewController {
             if (movie.trailerKey != nil){
                 viewTrailerButton.frame =  CGRect(x: contentSideMargin, y: currentY, width: contentWidth, height: viewTrailerButton.sizeThatFits(fullWidthMaxSize).height)
                 currentY += releaseLabel.frame.height + 6
+                viewTrailerButton.isHidden = false
+            }else{
+                viewTrailerButton.isHidden = true
             }
             
             
