@@ -146,12 +146,19 @@ class MoviesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! MovieListItemCell
-        //        let indexPath = tableView.indexPath(for: cell)
-        //        let post = posts[indexPath?.row]
         let detailViewController = segue.destination as! MovieDetailViewController
-        detailViewController.movieID = cell.movieID
-        //detailViewController.photoUrl = cell.imageUrl
+        if let cell = sender as? MovieListItemCell{
+            //        let indexPath = tableView.indexPath(for: cell)
+            //        let post = posts[indexPath?.row]
+            detailViewController.movieID = cell.movieID
+            //detailViewController.photoUrl = cell.imageUrl
+        }else{
+            let cell = sender as! UICollectionViewCell
+            let indexPath = collectionView.indexPath(for: cell)
+            let movie = movies[(indexPath?.row)!]
+            detailViewController.movieID = ((movie.value(forKey: "id")  as? NSNumber) ?? 0).stringValue
+            
+        }
         
     }
     
